@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <meta name="monetag" content="678c1045e18f651a84463d340969b396">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AprenderYa</title>
@@ -13,7 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Fondo degradado vibrante */
+            background: linear-gradient(135deg, #f0f0f0, #d9d9d9); /* Fondo clásico */
             color: #333;
             overflow: hidden;
         }
@@ -28,57 +31,34 @@
         }
 
         /* AprenderYa Section */
-        .learning-tools {
-            padding: 40px;
-            text-align: left;
-            background: none; /* Elimina el fondo del recuadro */
-            border-radius: 0; /* Elimina los bordes redondeados */
-            box-shadow: none; /* Elimina la sombra */
-            max-width: 100%; /* Ocupa todo el ancho */
-            height: auto; /* Ajusta la altura automáticamente */
-        }
-        .learning-tools h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #333; /* Texto en tono oscuro */
-            text-shadow: none; /* Sin sombras para un diseño más limpio */
-        }
-        .learning-tools p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            line-height: 1.5;
-            color: #555; /* Texto en tono gris */
-        }
         .categories {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajusta dinámicamente las columnas */
-            gap: 30px; /* Espaciado entre recuadros */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             justify-content: center;
             align-items: center;
-            margin: 0 auto; /* Centra en la pantalla */
+            margin: 0 auto;
             padding: 40px;
-            height: 100%; /* Ocupa toda la altura disponible */
-            box-sizing: border-box; /* Incluye padding en el cálculo del tamaño */
+            max-width: 1200px;
         }
         .category {
-            background: linear-gradient(135deg, #6a11cb, #2575fc); /* Fondo degradado atractivo */
-            border: none;
-            border-radius: 15px;
+            background: #ffffff; /* Fondo blanco clásico */
+            border: 1px solid #ccc; /* Borde gris claro */
+            border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más definida */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
-            color: #fff; /* Texto blanco */
+            color: #333;
         }
         .category:hover {
-            transform: translateY(-10px); /* Eleva el recuadro al pasar el cursor */
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
         .category h2 {
-            font-size: 1.8rem; /* Título más grande */
+            font-size: 1.5rem;
             margin-bottom: 15px;
-            color: #fff;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para el texto */
+            color: #333;
         }
         .category ul {
             list-style: none;
@@ -86,70 +66,16 @@
             margin: 0;
         }
         .category ul li {
-            margin: 10px 0; /* Espaciado entre elementos */
+            margin: 10px 0;
         }
         .category ul li a {
-            color: #ffe4e1; /* Color claro para enlaces */
+            color: #007bff; /* Azul clásico */
             text-decoration: none;
             font-size: 1rem;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
+            transition: color 0.3s ease;
         }
         .category ul li a:hover {
-            color: #fff; /* Cambia a blanco al pasar el cursor */
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para el enlace */
-        }
-
-        /* Games Section */
-        .games-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
-            padding: 20px;
-            height: 100%;
-        }
-        .games-section {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            overflow-y: auto;
-        }
-        .games-section h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-        .games-section .grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: flex-start;
-        }
-        .games-section .grid img {
-            cursor: pointer;
-            border-radius: 15px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            object-fit: cover; /* Asegura que las imágenes mantengan sus proporciones */
-        }
-        .games-section .grid img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-        }
-        .games-section .grid img:nth-child(1) {
-            width: 300px;
-            height: auto; /* Permite que la altura se ajuste automáticamente */
-        }
-        .games-section .grid img:nth-child(2) {
-            width: 200px;
-            height: auto; /* Permite que la altura se ajuste automáticamente */
-        }
-        .games-section .grid img:nth-child(3) {
-            width: 250px;
-            height: auto; /* Permite que la altura se ajuste automáticamente */
+            color: #0056b3; /* Azul más oscuro */
         }
 
         /* Watermark */
@@ -157,20 +83,9 @@
             position: absolute;
             bottom: 20px;
             right: 20px;
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.6);
             font-style: italic;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-            background: rgba(0, 0, 0, 0.5);
-            padding: 5px 10px;
-            border-radius: 8px;
-        }
-
-        /* Iframe */
-        iframe {
-            width: 100%;
-            height: 100vh;
-            border: none;
         }
 
         /* Animations */
@@ -182,145 +97,55 @@
                 opacity: 1;
             }
         }
-        .grid {
-            display: flex;
-            flex-direction: row; /* Alinea los elementos en fila */
-            justify-content: center; /* Centra horizontalmente */
-            align-items: center; /* Centra verticalmente */
-            gap: 40px; /* Incrementa el espacio entre elementos de la sección de juegos */
-            height: 100%; /* Ocupa toda la altura de la sección */
-            text-align: center; /* Centra el texto debajo de las imágenes */
-        }
-        .grid-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .grid img {
-            cursor: pointer;
-            border-radius: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-            object-fit: contain; /* Mantiene las proporciones originales */
-            width: 200px; /* Aumenta el tamaño de las imágenes */
-            height: auto;
-        }
-        .grid img:hover {
-            transform: scale(1.2); /* Aumenta el efecto al pasar el cursor */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Mejora la sombra */
-        }
-        .grid-item span {
-            margin-top: 15px;
-            font-size: 1.2rem; /* Aumenta el tamaño del texto */
-            font-weight: bold;
-            color: #333; /* Cambia el color del texto para mejor contraste */
-            text-shadow: none; /* Elimina sombras para mayor claridad */
-        }
-
-        /* Ajustes para efectos de hover en ambas secciones */
-        .grid img, .category {
-            position: relative; /* Asegura que cada elemento tenga su propio contexto */
-            z-index: 1; /* Nivel base */
-            transition: transform 0.2s ease, box-shadow 0.2s ease, z-index 0.2s ease;
-            overflow: hidden; /* Evita que el contenido se desborde */
-        }
-        .grid img:hover, .category:hover {
-            z-index: 10; /* Trae el elemento al frente */
-            transform: scale(1.05); /* Reduce el aumento del tamaño */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Ajusta la sombra */
-            clip-path: inset(0); /* Asegura que el contenido no se salga de los bordes */
-        }
-
-        /* Estilo para el menú minimalista */
-        .menu {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-        .menu a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 8px 15px;
-            border-radius: 8px;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-        .menu a:hover {
-            background: #ff9a9e;
-            color: #fff;
-        }
     </style>
 </head>
 <body>
     <!-- Encabezado principal -->
-    <header id="main-header" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); font-size: 2rem; font-weight: bold; color: #333; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); text-align: center; z-index: 1000;">
+    <header id="main-header" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); font-size: 2rem; font-weight: bold; color: #333; text-align: center; z-index: 1000;">
         AprenderYa - Recursos Educativos
     </header>
 
     <!-- AprenderYa Section -->
-    <div id="learning" class="section active" style="padding-top: 80px; background: #f4f4f4; color: #333;">
-        <div class="categories" style="max-width: 1200px; margin: 0 auto;">
-            <div id="matematicas" class="category" style="background: #ffffff; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-                <h2 style="color: #333;">Matemáticas</h2>
+    <div id="learning" class="section active" style="padding-top: 80px;">
+        <div class="categories">
+            <div id="matematicas" class="category">
+                <h2>Matemáticas</h2>
                 <ul>
-                    <li><a href="https://www.khanacademy.org/math" target="_blank" style="color: #007bff;">Khan Academy</a></li>
-                    <li><a href="https://www.symbolab.com/" target="_blank" style="color: #007bff;">Symbolab</a></li>
+                    <li><a href="https://www.khanacademy.org/math" target="_blank">Khan Academy</a></li>
+                    <li><a href="https://www.symbolab.com/" target="_blank">Symbolab</a></li>
+                    <li><a href="https://www.desmos.com/" target="_blank">Desmos</a></li>
                 </ul>
             </div>
-            <div id="catalan" class="category" style="background: #ffffff; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-                <h2 style="color: #333;">Catalán</h2>
+            <div id="catalan" class="category">
+                <h2>Catalán</h2>
                 <ul>
-                    <li><a href="https://www.parla.cat/" target="_blank" style="color: #007bff;">Parla.cat</a></li>
-                    <li><a href="https://llengua.gencat.cat/" target="_blank" style="color: #007bff;">Llengua Catalana</a></li>
+                    <li><a href="https://www.parla.cat/" target="_blank">Parla.cat</a></li>
+                    <li><a href="https://llengua.gencat.cat/" target="_blank">Llengua Catalana</a></li>
+                    <li><a href="https://www.vilaweb.cat/" target="_blank">VilaWeb</a></li>
                 </ul>
             </div>
-            <div id="castellano" class="category" style="background: #ffffff; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-                <h2 style="color: #333;">Castellano</h2>
+            <div id="castellano" class="category">
+                <h2>Castellano</h2>
                 <ul>
-                    <li><a href="https://www.rae.es/" target="_blank" style="color: #007bff;">Real Academia Española</a></li>
-                    <li><a href="https://cvc.cervantes.es/" target="_blank" style="color: #007bff;">Centro Virtual Cervantes</a></li>
+                    <li><a href="https://www.rae.es/" target="_blank">Real Academia Española</a></li>
+                    <li><a href="https://cvc.cervantes.es/" target="_blank">Centro Virtual Cervantes</a></li>
+                    <li><a href="https://www.fundeu.es/" target="_blank">Fundéu</a></li>
                 </ul>
             </div>
-            <div id="visuales-plastica" class="category" style="background: #ffffff; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-                <h2 style="color: #333;">Visuales y Plástica</h2>
+            <div id="tecnologia" class="category">
+                <h2>Tecnología</h2>
                 <ul>
-                    <li><a href="https://artsandculture.google.com/" target="_blank" style="color: #007bff;">Google Arts & Culture</a></li>
-                    <li><a href="https://www.moma.org/" target="_blank" style="color: #007bff;">MoMA</a></li>
+                    <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a></li>
+                    <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
+                    <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
                 </ul>
             </div>
-            <div id="educacion-fisica" class="category" style="background: #ffffff; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-                <h2 style="color: #333;">Educación Física</h2>
+            <div id="fisica-quimica" class="category">
+                <h2>Física y Química</h2>
                 <ul>
-                    <li><a href="https://www.topendsports.com/" target="_blank" style="color: #007bff;">Topend Sports</a></li>
-                    <li><a href="https://www.teachpe.com/" target="_blank" style="color: #007bff;">TeachPE</a></li>
-                </ul>
-            </div>
-            <div id="tecnologia" class="category" style="background: #ffffff; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-                <h2 style="color: #333;">Tecnología</h2>
-                <ul>
-                    <li><a href="https://www.codecademy.com/" target="_blank" style="color: #007bff;">Codecademy</a></li>
-                    <li><a href="https://www.freecodecamp.org/" target="_blank" style="color: #007bff;">freeCodeCamp</a></li>
-                </ul>
-            </div>
-            <div id="sociales" class="category" style="background: #ffffff; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-                <h2 style="color: #333;">Sociales</h2>
-                <ul>
-                    <li><a href="https://www.nationalgeographic.com/" target="_blank" style="color: #007bff;">National Geographic</a></li>
-                    <li><a href="https://www.bbc.com/history" target="_blank" style="color: #007bff;">BBC History</a></li>
-                </ul>
-            </div>
-            <div id="fisica-quimica" class="category" style="background: #ffffff; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-                <h2 style="color: #333;">Física y Química</h2>
-                <ul>
-                    <li><a href="https://phet.colorado.edu/" target="_blank" style="color: #007bff;">PhET Simulaciones</a></li>
-                    <li><a href="https://www.periodicvideos.com/" target="_blank" style="color: #007bff;">Periodic Videos</a></li>
+                    <li><a href="https://phet.colorado.edu/" target="_blank">PhET Simulaciones</a></li>
+                    <li><a href="https://www.periodicvideos.com/" target="_blank">Periodic Videos</a></li>
+                    <li><a href="https://chemcollective.org/" target="_blank">ChemCollective</a></li>
                 </ul>
             </div>
         </div>
@@ -328,21 +153,22 @@
 
     <!-- Gaming Section -->
     <div id="gaming" class="section">
-        <div class="grid" style="padding-top: 80px; justify-content: center; align-items: center; text-align: center;">
-            <div class="grid-item" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="games-container" style="padding-top: 80px; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+            <div class="game-card" style="background: #ffffff; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; width: 250px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                 <img src="https://m.media-amazon.com/images/I/81QvTr92RXL.png" 
                      alt="Unblocked Games" 
                      onclick="loadGame('https://www.hoodamath.com/games/unblocked.html#gsc.tab=0')" 
-                     style="margin-bottom: 10px;">
-                <span>Hooda Math</span>
+                     style="width: 100%; border-radius: 10px; margin-bottom: 15px; cursor: pointer;">
+                <h3 style="font-size: 1.2rem; color: #333; margin-bottom: 10px;">Hooda Math</h3>
             </div>
-            <div class="grid-item" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="game-card" style="background: #ffffff; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; width: 250px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                 <img src="https://image.winudf.com/v2/image/Y29tLmxpbG8ubW9iaWxlUFMzX2ljb25fMTUzNzA1MzQ1Nl8wNTU/icon.png?w=184&fakeurl=1" 
                      alt="Ball Bang" 
                      onclick="loadGame('https://ball-bang.github.io/')" 
-                     style="margin-bottom: 10px;">
-                <span>Ball Bang</span>
+                     style="width: 100%; border-radius: 10px; margin-bottom: 15px; cursor: pointer;">
+                <h3 style="font-size: 1.2rem; color: #333; margin-bottom: 10px;">Ball Bang</h3>
             </div>
+            <!-- Agregar más juegos aquí si es necesario -->
         </div>
         <div class="watermark">@_bielcastillo</div>
     </div>
@@ -408,19 +234,22 @@
             const gamingSection = document.getElementById('gaming');
             const header = document.getElementById('main-header');
             gamingSection.innerHTML = `
-                <div class="grid">
-                    <div class="grid-item">
+                <div class="games-container" style="padding-top: 80px; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+                    <div class="game-card" style="background: #ffffff; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; width: 250px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <img src="https://m.media-amazon.com/images/I/81QvTr92RXL.png" 
                              alt="Unblocked Games" 
-                             onclick="loadGame('https://www.hoodamath.com/games/unblocked.html#gsc.tab=0')">
-                        <span>Hooda Math</span>
+                             onclick="loadGame('https://www.hoodamath.com/games/unblocked.html#gsc.tab=0')" 
+                             style="width: 100%; border-radius: 10px; margin-bottom: 15px; cursor: pointer;">
+                        <h3 style="font-size: 1.2rem; color: #333; margin-bottom: 10px;">Hooda Math</h3>
                     </div>
-                    <div class="grid-item">
+                    <div class="game-card" style="background: #ffffff; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; width: 250px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <img src="https://image.winudf.com/v2/image/Y29tLmxpbG8ubW9iaWxlUFMzX2ljb25fMTUzNzA1MzQ1Nl8wNTU/icon.png?w=184&fakeurl=1" 
                              alt="Ball Bang" 
-                             onclick="loadGame('https://ball-bang.github.io/')">
-                        <span>Ball Bang</span>
+                             onclick="loadGame('https://ball-bang.github.io/')" 
+                             style="width: 100%; border-radius: 10px; margin-bottom: 15px; cursor: pointer;">
+                        <h3 style="font-size: 1.2rem; color: #333; margin-bottom: 10px;">Ball Bang</h3>
                     </div>
+                    <!-- Agregar más juegos aquí si es necesario -->
                 </div>
                 <div class="watermark">@_bielcastillo</div>
             `;
