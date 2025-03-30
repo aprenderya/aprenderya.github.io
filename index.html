@@ -17,6 +17,10 @@
             margin: 0;
             height: 100vh;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
         }
         iframe {
             width: 100%;
@@ -27,9 +31,43 @@
         iframe.active {
             display: block;
         }
+        #loadingScreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+        #loadingScreen.hidden {
+            display: none;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #007BFF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
+    <div id="loadingScreen" class="hidden">
+        <div class="spinner"></div>
+    </div>
     <iframe id="recursosESOFrame" class="active" src="https://www.recursoseso.com/" title="Recursos ESO"></iframe>
     <iframe id="emacFrame" src="https://emacproject.github.io" title="Emac Project"></iframe>
 
@@ -38,11 +76,26 @@
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Tab') {
                 event.preventDefault();
-                currentFrame = currentFrame === 'recursosESOFrame' ? 'emacFrame' : 'recursosESOFrame';
-                document.querySelectorAll('iframe').forEach(iframe => iframe.classList.remove('active'));
-                document.getElementById(currentFrame).classList.add('active');
+                const loadingScreen = document.getElementById('loadingScreen');
+                const nextFrame = currentFrame === 'recursosESOFrame' ? 'emacFrame' : 'recursosESOFrame';
+
+                if (nextFrame === 'emacFrame') {
+                    loadingScreen.classList.remove('hidden');
+                    setTimeout(() => {
+                        switchFrame(nextFrame);
+                        loadingScreen.classList.add('hidden');
+                    }, 3000);
+                } else {
+                    switchFrame(nextFrame);
+                }
             }
         });
+
+        function switchFrame(frameId) {
+            document.querySelectorAll('iframe').forEach(iframe => iframe.classList.remove('active'));
+            document.getElementById(frameId).classList.add('active');
+            currentFrame = frameId;
+        }
     </script>
 </body>
 </html>
