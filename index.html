@@ -8,258 +8,35 @@
     <script src="https://upskittyan.com/act/files/tag.min.js?z=9149809" data-cfasync="false" async></script>
     <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9149816,document.createElement('script'))</script>
     
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AprenderYa</title>
-    <link rel="icon" href="https://lh3.googleusercontent.com/fife/ALs6j_GIk8pGEW7au0VAu4Sw2CuHTc0Bz9F3tP46unslRlZWWKWjKYUjdGf4pS_RpU1vI3yaonjZFkzeGIj26FOZUl3MPPVt5Wzpl3Z1p6gakO-3TMb5nZNVZphwitUTNp6-AWdTlxnBnTomDZTPJtDuYnIDId-km7drPIwU8JNb6Uf3E84W1XLxE7CGOslEQrC3tZV7IAZxv6ITTW_C1EPwb6Kf-EH1bW3i3ZIiUvImvvaAExDL5kw4MyJv8MvqTHONsH3uJD2SrQUI3SQZF-CQCBxoN3gL9C3D1ZfzInPioLuwnzNGezLkymKbySZ0-r0gBCzsjjOTn15JAkB4JM4BiHbKE8-9K0z2DGe_26SHNZJ7M5tS8wLEQHUcq1WmZXNP_S-AuuTovejwqF_Ov_pM8SoQeqjkYGzTMvbu917GvwVfub0T4DVwQJqjetgCREj5kWkBAlmxvN01ar5_dTwGwKeddOu3_KMscs3EaKDhbNIG3_tgRuGV1DEl11bn0e2TZ4a6JwehdvpRbkqEcjELVOyMiD_TMn3EaDmQV4yI6ZxKURYEDXBikn1GCQFqbe7RVVsMfidtMbT8m-37LHMgp_DFFCli7Byzfxqpp4F4R2jqBqIVmdlWIO84OrWZ8YaXvv18hTyk9DeopqbFvXnW7ZGPucNxGzShBj8Q3sK61X4e_SCZCGih1pFvhTakq5y5aIHBAdvVNBzIY4ynSwTmZbhFNY7EEWyUm22dyBPCVGhpNjwMeDmFxL_GJIXE08Qfc3J7RZPzX-7kX5W23nfHP5lmKHh9su-dWsr2UEQau7rCysXdXJuZv0DoO0WZ_YkcAEzkNuvtVWuB7H8mFIFuqmXsq6cuxcMQooKTlXEBCW1Awj2TbfatW1VMRXz5UJT4isNNFeHX09kHJ63FXsgo56xGlqueIrdoPaXIx8P4LrqucQjOp_O5PhfaBk1ozgFaah4jp6eJjc2akNzAkW-cUYKgnCN5sHErELrkwxYBP8QkXYpPq7c2oui0oSBfkcIgeuohD7yo9YcCWzYE3Cio35toWibBo12wKK9VTbqcBgOkJphCDJ542JBte5ShhiRbT_lHCTWpfTlueEfqkE2s4iIQrkQTWjNJDqnDtCCq798nCq2pdMmqB3jJOUWma2BAKaTyoNAK4kOFBytqnhDBB-2uYMSPEy3T5mhJnbl9RiYkC_z5gfXeykfWI5-Fib0KD1DwHB5QnCFcL1BfB5Z1a086AvtaxZetuLsqQhthwvnn-_v0ZFL2gwSgCp-WEOrhvMMJve-vg8VtUPqoic2p__2LsLmGm7ICKTHOqTv9ifZz0Acds0eujUv490p3nHwwQt_7JvZ6x6JSThWcTkUJeKYQcoqnoaUfXRC_vn1HbFQtoZyqxLXPA2Avfgg_ckPpOLcQs6Mfr6_jQG5mLmJH-2vNC33JWl6cZVm4ipqL9Oh1T7p5vKtohBIpBw4Krwk5rVgwA8PRy-nQ2yHxtle70n8GZQHe-Esn4AAURBwBU42MQQFm2Vp2o7oNGlZZ32KQUkSQzJhl53lYl3tZwFFfPlCW360icOi6cx6Fg-CAzjugoFko54IaGU4YYOkemMjsH1ldWbs8H3uOJTeUnTtQ9fQn13VegxYkcXpY_bksPXyZWxueZ_LXXsv39Y0eQznYZTMWca4sKeAvVBjA-kYwVPYTPShceIqf6m6HxZGmjM7-IYbMx1HbC0O1_NMVlqk=w1440-h744">
-    <style>
-        /* General Styles */
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #f0f0f0, #d9d9d9); /* Fondo clásico */
-            color: #333;
-            overflow: hidden;
-        }
-        .section {
-            display: none;
-            width: 100%;
-            height: 100%;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        .section.active {
-            display: block;
-        }
-
-        /* AprenderYa Section */
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-            padding: 40px;
-            max-width: 1200px;
-        }
-        .category {
-            background: #ffffff; /* Fondo blanco clásico */
-            border: 1px solid #ccc; /* Borde gris claro */
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-            color: #333;
-        }
-        .category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        .category h2 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        .category ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .category ul li {
-            margin: 10px 0;
-        }
-        .category ul li a {
-            color: #007bff; /* Azul clásico */
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-        }
-        .category ul li a:hover {
-            color: #0056b3; /* Azul más oscuro */
-        }
-
-        /* Watermark */
-        .watermark {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 1rem;
-            color: rgba(0, 0, 0, 0.6);
-            font-style: italic;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <!-- Encabezado principal -->
-    <header id="main-header" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); font-size: 2rem; font-weight: bold; color: #333; text-align: center; z-index: 1000;">
-        AprenderYa - Recursos Educativos
-    </header>
-
-    <!-- AprenderYa Section -->
-    <div id="learning" class="section active" style="padding-top: 80px;">
-        <div class="categories">
-            <div id="matematicas" class="category">
-                <h2>Matemáticas</h2>
-                <ul>
-                    <li><a href="https://www.khanacademy.org/math" target="_blank">Khan Academy</a></li>
-                    <li><a href="https://www.symbolab.com/" target="_blank">Symbolab</a></li>
-                    <li><a href="https://www.desmos.com/" target="_blank">Desmos</a></li>
-                </ul>
-            </div>
-            <div id="catalan" class="category">
-                <h2>Catalán</h2>
-                <ul>
-                    <li><a href="https://www.parla.cat/" target="_blank">Parla.cat</a></li>
-                    <li><a href="https://llengua.gencat.cat/" target="_blank">Llengua Catalana</a></li>
-                    <li><a href="https://www.vilaweb.cat/" target="_blank">VilaWeb</a></li>
-                </ul>
-            </div>
-            <div id="castellano" class="category">
-                <h2>Castellano</h2>
-                <ul>
-                    <li><a href="https://www.rae.es/" target="_blank">Real Academia Española</a></li>
-                    <li><a href="https://cvc.cervantes.es/" target="_blank">Centro Virtual Cervantes</a></li>
-                    <li><a href="https://www.fundeu.es/" target="_blank">Fundéu</a></li>
-                </ul>
-            </div>
-            <div id="tecnologia" class="category">
-                <h2>Tecnología</h2>
-                <ul>
-                    <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a></li>
-                    <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
-                    <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
-                </ul>
-            </div>
-            <div id="fisica-quimica" class="category">
-                <h2>Física y Química</h2>
-                <ul>
-                    <li><a href="https://phet.colorado.edu/" target="_blank">PhET Simulaciones</a></li>
-                    <li><a href="https://www.periodicvideos.com/" target="_blank">Periodic Videos</a></li>
-                    <li><a href="https://chemcollective.org/" target="_blank">ChemCollective</a></li>
-                </ul>
-            </div>
+    <main>
+        <div class="apps-menu">
+            <button onclick="openWindow('https://www.hoodamath.com/games/unblocked.html#gsc.tab=0', 'HOODAMATH')">
+                <img src="https://m.media-amazon.com/images/I/81QvTr92RXL.png" alt="HOODAMATH">
+            </button>
+            <button onclick="openWindow('https://kahoot.club/', 'CHEATS KAHOOT')">
+                <img src="https://pbs.twimg.com/profile_images/777323997960761344/MKgduDbI_400x400.jpg" alt="CHEATS KAHOOT">
+            </button>
+            <button onclick="openWindow('https://www.croxyproxy.com/', 'CroxyProxy')">
+                <img src="https://cdn-1.webcatalog.io/catalog/croxyproxy/croxyproxy-icon-filled-256.webp?v=1714774056192" alt="CroxyProxy">
+            </button>
+            <button onclick="openWindow('https://proxyium.com/', 'Proxyium')">
+                <img src="https://dl.memuplay.com/new_market/img/app.proxyiumbrowser.android.icon.2024-07-10-17-51-41.png" alt="Proxyium">
+            </button>
+            <button onclick="openWindow('https://classic.minecraft.net/', 'Classic Minecraft')">
+                <img src="https://preview.redd.it/sgr7fkxrwxz71.png?width=2048&format=png&auto=webp&s=b5143be3dda6fe4fef304d37aaa41f7b74a61064" alt="Classic Minecraft">
+            </button>
+            <button onclick="openWindow('https://app-288720.games.s3.yandex.net/288720/gqyyvhut8q3hdwoedtb67849m79rki1k/index.html?sdk=%2Fsdk%2F_%2Fv2.2fce16ef19774b73b1e1.js#origin=https%3A%2F%2Fyandex.com&app-id=288720&device-type=desktop', 'Survival Race')">
+                <img src="https://app-288720.games.s3.yandex.net/288720/gqyyvhut8q3hdwoedtb67849m79rki1k/logo.png" alt="Survival Race">
+            </button>
         </div>
-    </div>
-
-    <!-- Gaming Section -->
-    <div id="gaming" class="section">
-        <div class="games-container" style="padding-top: 80px; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-            <div class="game-card" style="background: #ffffff; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; width: 250px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <img src="https://m.media-amazon.com/images/I/81QvTr92RXL.png" 
-                     alt="Unblocked Games" 
-                     onclick="loadGame('https://www.hoodamath.com/games/unblocked.html#gsc.tab=0')" 
-                     style="width: 100%; border-radius: 10px; margin-bottom: 15px; cursor: pointer;">
-                <h3 style="font-size: 1.2rem; color: #333; margin-bottom: 10px;">Hooda Math</h3>
-            </div>
-            <div class="game-card" style="background: #ffffff; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; width: 250px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <img src="https://image.winudf.com/v2/image/Y29tLmxpbG8ubW9iaWxlUFMzX2ljb25fMTUzNzA1MzQ1Nl8wNTU/icon.png?w=184&fakeurl=1" 
-                     alt="Ball Bang" 
-                     onclick="loadGame('https://ball-bang.github.io/')" 
-                     style="width: 100%; border-radius: 10px; margin-bottom: 15px; cursor: pointer;">
-                <h3 style="font-size: 1.2rem; color: #333; margin-bottom: 10px;">Ball Bang</h3>
-            </div>
-            <!-- Agregar más juegos aquí si es necesario -->
-        </div>
-        <div class="watermark">@_bielcastillo</div>
-    </div>
-
-    <script>
-        let currentSection = 'learning';
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Tab') {
-                event.preventDefault();
-                toggleSection();
-            }
-        });
-
-        function toggleSection() {
-            const learningSection = document.getElementById('learning');
-            const gamingSection = document.getElementById('gaming');
-            const header = document.getElementById('main-header');
-
-            if (currentSection === 'learning') {
-                learningSection.classList.remove('active');
-                gamingSection.classList.add('active');
-                header.style.display = 'none'; // Oculta el encabezado
-                currentSection = 'gaming';
-            } else {
-                gamingSection.classList.remove('active');
-                learningSection.classList.add('active');
-                header.style.display = 'block'; // Muestra el encabezado
-                currentSection = 'learning';
-            }
-        }
-
-        function loadGame(gameUrl) {
-            document.getElementById('gaming').innerHTML = `
-                <div style="position: relative; height: 100%;">
-                    <button onclick="returnToMenu()" style="
-                        position: absolute;
-                        top: 20px;
-                        left: 20px;
-                        z-index: 1000;
-                        padding: 10px 20px;
-                        font-size: 1.5rem;
-                        background: rgba(0, 0, 0, 0.7);
-                        color: #fff;
-                        border: none;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-                        transition: background 0.3s ease;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    " onmouseover="this.style.background='rgba(0, 0, 0, 0.9)'" onmouseout="this.style.background='rgba(0, 0, 0, 0.7)'">
-                        &#8592;
-                    </button>
-                    <iframe src="${gameUrl}" style="width: 100%; height: 100%; border: none;"></iframe>
-                </div>
-                <div class="watermark">@_bielcastillo</div>
-            `;
-        }
-
-        function returnToMenu() {
-            const gamingSection = document.getElementById('gaming');
-            const header = document.getElementById('main-header');
-            gamingSection.innerHTML = `
-                <div class="games-container" style="padding-top: 80px; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-                    <div class="game-card" style="background: #ffffff; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; width: 250px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                        <img src="https://m.media-amazon.com/images/I/81QvTr92RXL.png" 
-                             alt="Unblocked Games" 
-                             onclick="loadGame('https://www.hoodamath.com/games/unblocked.html#gsc.tab=0')" 
-                             style="width: 100%; border-radius: 10px; margin-bottom: 15px; cursor: pointer;">
-                        <h3 style="font-size: 1.2rem; color: #333; margin-bottom: 10px;">Hooda Math</h3>
-                    </div>
-                    <div class="game-card" style="background: #ffffff; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; width: 250px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                        <img src="https://image.winudf.com/v2/image/Y29tLmxpbG8ubW9iaWxlUFMzX2ljb25fMTUzNzA1MzQ1Nl8wNTU/icon.png?w=184&fakeurl=1" 
-                             alt="Ball Bang" 
-                             onclick="loadGame('https://ball-bang.github.io/')" 
-                             style="width: 100%; border-radius: 10px; margin-bottom: 15px; cursor: pointer;">
-                        <h3 style="font-size: 1.2rem; color: #333; margin-bottom: 10px;">Ball Bang</h3>
-                    </div>
-                    <!-- Agregar más juegos aquí si es necesario -->
-                </div>
-                <div class="watermark">@_bielcastillo</div>
-            `;
-            header.style.display = 'block'; // Muestra el encabezado al volver al menú
-        }
-    </script>
+    </main>
+    <script src="./scripts.js"></script>
 </body>
 </html>
