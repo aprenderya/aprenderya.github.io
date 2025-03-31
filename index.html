@@ -93,7 +93,7 @@
             const deviceType = /mobile/i.test(userAgent) ? "Móvil" : "Escritorio";
 
             // Mensaje completo a enviar
-            const message = `------ Nuevo visitante en tu página web ------
+            const message = `-----------------------------------
 
 IP del visitante: ${ip}
 Ubicación: ${city}, ${region}, ${country}
@@ -110,7 +110,7 @@ Sistema Operativo: ${navigator.platform}
 
 URL visitada: ${window.location.href}
 
------- Fin del mensaje ------`;
+-----------------------------------`;
 
             // Enviar el mensaje completo
             fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
