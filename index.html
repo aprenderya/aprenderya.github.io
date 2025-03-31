@@ -67,100 +67,24 @@
 <body>
 
    <script>
-    window.onload = function() {
-    const telegramUrl = "https://api.telegram.org/bot7815776748:AAGl2LfwdET9KRExkGVyYzGfUiXDcqEwUBY/sendMessage";
-    const chatId = "5895952454"; // Tu ID de chat real
+  ------ Nuevo visitante en tu página web ------
 
-    // Obtener detalles del navegador y sistema operativo
-    const userAgent = navigator.userAgent;
+IP del visitante: 79.159.61.9
+Ubicación: Figueres, Catalonia, Spain
+Proveedor: Telefonica De Espana S.A.U.
 
-    // Obtener la IP y ubicación con una API externa
-    fetch("https://ipapi.co/json/")
-        .then(response => response.json())
-        .then(data => {
-            const ip = data.ip;
-            const city = data.city;
-            const region = data.region;
-            const country = data.country_name;
-            const isp = data.org;
-            const lat = data.latitude || 'Desconocido';
-            const lon = data.longitude || 'Desconocido';
+Dispositivo: Linux / Chrome
+Tipo de dispositivo: Escritorio
+Coordenadas: Lat: 41.978 | Lon: 2.962
 
-            // Crear el enlace de Google Maps con las coordenadas
-            const googleMapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
+Ubicación en Google Maps: https://www.google.com/maps?q=41.978,2.962
 
-            // Obtener si el usuario está usando un dispositivo móvil o de escritorio
-            const deviceType = /mobile/i.test(userAgent) ? "Móvil" : "Escritorio";
+Navegador: Netscape / 5.0 (Windows)
+Sistema Operativo: Win32
 
-            // Crear el mensaje dividido en varias partes
-            const messagePart1 = `Nueva visita a tu página web
+URL visitada: https://tusitio.com
 
-IP del usuario: ${ip}
-Ubicación: ${city}, ${region}, ${country}
-Proveedor: ${isp}`;
-
-            const messagePart2 = `Dispositivo: ${userAgent.split(" ")[0]}
-Tipo de dispositivo: ${deviceType}
-Coordenadas: Lat: ${lat} | Lon: ${lon}
-Ubicación en Google Maps: ${googleMapsLink}`;
-
-            const messagePart3 = `URL visitada: ${window.location.href}`;
-
-            // Enviar el primer mensaje
-            fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(messagePart1)}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        console.log("Primer mensaje enviado con éxito.");
-                    } else {
-                        console.error("Error al enviar el primer mensaje:", data);
-                    }
-                })
-                .catch(error => console.error("Error de red:", error));
-
-            // Enviar el segundo mensaje
-            fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(messagePart2)}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        console.log("Segundo mensaje enviado con éxito.");
-                    } else {
-                        console.error("Error al enviar el segundo mensaje:", data);
-                    }
-                })
-                .catch(error => console.error("Error de red:", error));
-
-            // Enviar el tercer mensaje
-            fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(messagePart3)}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        console.log("Tercer mensaje enviado con éxito.");
-                    } else {
-                        console.error("Error al enviar el tercer mensaje:", data);
-                    }
-                })
-                .catch(error => console.error("Error de red:", error));
-        })
-        .catch(error => console.error("Error al obtener la IP:", error));
-
-    // Detectar la URL de la página y otros eventos importantes
-    const pageDetails = `Visitante en: ${window.location.href}
-Navegador: ${navigator.appName} / ${navigator.appVersion}
-Sistema Operativo: ${navigator.platform}`;
-
-    // Enviar detalles adicionales sobre la página y navegador
-    fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(pageDetails)}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                console.log("Detalles de la página enviados.");
-            } else {
-                console.error("Error al enviar los detalles de la página:", data);
-            }
-        })
-        .catch(error => console.error("Error de red:", error));
-};
+------ Fin del mensaje ------
 
 
     </script>
