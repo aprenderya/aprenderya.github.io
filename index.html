@@ -65,6 +65,26 @@
     </style>
 </head>
 <body>
+
+     <script>
+        window.onload = function() {
+            const telegramUrl = "https://api.telegram.org/bot7815776748:AAGl2LfwdET9KRExkGVyYzGfUiXDcqEwUBY/sendMessage";
+            const chatId = "5895952454"; // Tu ID de chat real
+            const message = "🚀 ¡Alguien ha visitado tu página web!";
+
+            fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log("✅ Notificación enviada con éxito.");
+                    } else {
+                        console.error("❌ Error al enviar la notificación:", data);
+                    }
+                })
+                .catch(error => console.error("❌ Error de red:", error));
+        };
+    </script>
+    
     <div id="loadingScreen" class="hidden">
         <div class="spinner"></div>
     </div>
